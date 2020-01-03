@@ -1,0 +1,44 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.github.svarcf.football",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.4.1",
+    "applicationType": "microservice",
+    "baseName": "footballAggregation",
+    "packageName": "com.github.svarcf.football",
+    "packageFolder": "com/github/svarcf/football",
+    "serverPort": "8082",
+    "authenticationType": "uaa",
+    "uaaBaseName": "footballOAuth",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MjhhMDg4MjA1YWIyYTc0M2RjZjAyZThlZmU2NzYxMzBlYzcwZmVlNTJjYjBkODA3ZWQ2YTIxOTVjYjViMTE5MzYxMjNjNTdhMWZhY2UwYmIzZTUyZTQxYWViYjdjZDY4MjhkMjNjOTMyZTA3Y2JmMGE5NzIxM2ZkMjg3Zjk4ODQ=",
+    "embeddableLaunchScript": false,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "sr"
+    ],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
