@@ -1,0 +1,40 @@
+{
+    "name": "Fixture",
+    "fields": [
+        {
+            "fieldName": "eventDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "round",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "statusShort",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "venue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "score",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200104171042",
+    "entityTableName": "fixture",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "footballAggregation",
+    "applications": "*",
+    "microserviceName": "footballAggregation"
+}

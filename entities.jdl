@@ -1,0 +1,27 @@
+entity Player {
+    name String required
+    number Integer required
+    position String required
+}
+
+entity Team {
+	name String required
+    logo String
+    venueName String required
+    venueCity String required
+}
+
+relationship OneToMany {
+	Team{players} to Player{team(name)}
+}
+
+entity Fixture {
+    eventDate LocalDate required
+    round String
+    statusShort String
+    venue String
+    score String
+}
+
+dto * with mapstruct
+service * with serviceClass
