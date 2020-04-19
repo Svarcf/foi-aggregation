@@ -1,12 +1,9 @@
-package com.github.svarcf.football.service.dto.external.fixtures;
+package com.github.svarcf.football.service.dto.external;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class FixtureTeamData {
-
+public class CompetitionData {
     private long id;
-    private String name;
+    String name;
+    String code;
 
     public long getId() {
         return id;
@@ -22,5 +19,13 @@ public class FixtureTeamData {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

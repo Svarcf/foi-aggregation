@@ -4,6 +4,7 @@ import com.github.svarcf.football.domain.Fixture;
 import com.github.svarcf.football.domain.Team;
 import com.github.svarcf.football.repository.TeamRepository;
 import com.github.svarcf.football.service.dto.external.fixtures.FixtureData;
+import com.github.svarcf.football.service.dto.external.fixtures.FixtureScoreData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -27,18 +28,19 @@ public class FixtureDataToFixtureConverter implements Converter<FixtureData, Fix
             return fixtureModel;
         }
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
-        fixtureModel.setEventDate(LocalDate.parse(fixtureData.getEvent_date(), dateFormat));
+        fixtureModel.setEventDate(LocalDate.parse(fixtureData.getUtcDate(), dateFormat));
 
-        fixtureModel.setId(fixtureData.getFixture_id());
+        fixtureModel.setId(fixtureData.getId());
 //        TODO: fix leagueId issue
 //        fixtureModel.setLeagueId(fixtureData.getLeague_id());
         fixtureModel.setVenue(fixtureData.getVenue());
-        fixtureModel.setStatusShort(fixtureData.getStatusShort());
-        fixtureModel.setScore(fixtureData.getScore().getFulltime());
-        fixtureModel.setRound(fixtureData.getRound());
+        fixtureModel.setStatusShort(fixtureData.getScore().getWinner());
+        FixtureScoreData.Score fulltime = fixtureData.getScore().getFullTime();
+        fixtureModel.setScore(fulltime.getHomeTeam() + ":" +  fulltime.getAwayTeam());
+        fixtureModel.setRound(fixtureData.getMatchday());
 
-        Optional<Team> homeTeam = teamRepository.findById(fixtureData.getHomeTeam().getTeam_id());
-        Optional<Team> awayTeam = teamRepository.findById(fixtureData.getAwayTeam().getTeam_id());
+        Optional<Team> homeTeam = teamRepository.findById(fixtureData.getHomeTeam().getId());
+        Optional<Team> awayTeam = teamRepository.findById(fixtureData.getAwayTeam().getId());
         if(homeTeam.isPresent() && awayTeam.isPresent()){
             fixtureModel.setHomeTeam(homeTeam.get());
             fixtureModel.setAwayTeam(awayTeam.get());

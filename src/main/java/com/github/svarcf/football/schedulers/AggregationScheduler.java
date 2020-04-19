@@ -20,7 +20,7 @@ public class AggregationScheduler  {
     @Scheduled(fixedDelay = 200000)
     public void scheduledTask(){
         teamAggregator.aggregate();
-        playerAggregator.aggregate();
+//        playerAggregator.aggregate();
         fixtureAggregator.aggregate();
     }
 

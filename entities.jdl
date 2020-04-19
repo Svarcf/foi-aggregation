@@ -8,7 +8,6 @@ entity Team {
 	name String required
     logo String
     venueName String required
-    venueCity String required
 }
 
 relationship OneToMany {

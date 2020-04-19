@@ -13,7 +13,7 @@
     -->
     <changeSet id="20200104171041-1" author="jhipster">
         <createTable tableName="team">
-            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+            <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(255)">
@@ -23,9 +23,6 @@
                 <constraints nullable="true" />
             </column>
             <column name="venue_name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="venue_city" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
@@ -54,7 +51,6 @@
             <column name="name" type="string"/>
             <column name="logo" type="string"/>
             <column name="venue_name" type="string"/>
-            <column name="venue_city" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
         </loadData>
     </changeSet>

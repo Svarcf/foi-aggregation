@@ -17,7 +17,6 @@ public class Team implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -30,10 +29,6 @@ public class Team implements Serializable {
     @NotNull
     @Column(name = "venue_name", nullable = false)
     private String venueName;
-
-    @NotNull
-    @Column(name = "venue_city", nullable = false)
-    private String venueCity;
 
     @OneToMany(mappedBy = "team")
     private Set<Player> players = new HashSet<>();
@@ -86,19 +81,6 @@ public class Team implements Serializable {
         this.venueName = venueName;
     }
 
-    public String getVenueCity() {
-        return venueCity;
-    }
-
-    public Team venueCity(String venueCity) {
-        this.venueCity = venueCity;
-        return this;
-    }
-
-    public void setVenueCity(String venueCity) {
-        this.venueCity = venueCity;
-    }
-
     public Set<Player> getPlayers() {
         return players;
     }
@@ -148,7 +130,6 @@ public class Team implements Serializable {
             ", name='" + getName() + "'" +
             ", logo='" + getLogo() + "'" +
             ", venueName='" + getVenueName() + "'" +
-            ", venueCity='" + getVenueCity() + "'" +
             "}";
     }
 }

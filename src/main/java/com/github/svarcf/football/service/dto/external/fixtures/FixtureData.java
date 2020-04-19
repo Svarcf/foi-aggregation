@@ -1,61 +1,42 @@
 package com.github.svarcf.football.service.dto.external.fixtures;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.github.svarcf.football.service.dto.external.SeasonData;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FixtureData {
 
-    private long fixture_id;
-    private int league_id;
-    private String event_date;
-    private String round;
-    private String statusShort;
+    private long id;
+    private String utcDate;
+    private String matchday;
     private String venue;
     private FixtureTeamData homeTeam;
     private FixtureTeamData awayTeam;
     private FixtureScoreData score;
+    private SeasonData season;
 
-    public FixtureData() {
+    public long getId() {
+        return id;
     }
 
-    public long getFixture_id() {
-        return fixture_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setFixture_id(long fixture_id) {
-        this.fixture_id = fixture_id;
+    public String getUtcDate() {
+        return utcDate;
     }
 
-    public int getLeague_id() {
-        return league_id;
+    public void setUtcDate(String utcDate) {
+        this.utcDate = utcDate;
     }
 
-    public void setLeague_id(int league_id) {
-        this.league_id = league_id;
+    public String getMatchday() {
+        return matchday;
     }
 
-    public String getEvent_date() {
-        return event_date;
-    }
-
-    public void setEvent_date(String event_date) {
-        this.event_date = event_date;
-    }
-
-    public String getRound() {
-        return round;
-    }
-
-    public void setRound(String round) {
-        this.round = round;
-    }
-
-    public String getStatusShort() {
-        return statusShort;
-    }
-
-    public void setStatusShort(String statusShort) {
-        this.statusShort = statusShort;
+    public void setMatchday(String matchday) {
+        this.matchday = matchday;
     }
 
     public String getVenue() {
@@ -88,5 +69,13 @@ public class FixtureData {
 
     public void setScore(FixtureScoreData score) {
         this.score = score;
+    }
+
+    public SeasonData getSeason() {
+        return season;
+    }
+
+    public void setSeason(SeasonData season) {
+        this.season = season;
     }
 }

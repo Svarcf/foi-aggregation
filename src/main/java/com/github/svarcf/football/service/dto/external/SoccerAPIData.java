@@ -6,21 +6,26 @@ import com.github.svarcf.football.service.dto.external.fixtures.FixtureData;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SoccerAPIData {
 
-    private FixtureData[] fixtures;
-
+    private CompetitionData competition;
+    private FixtureData[] matches;
     private TeamData[] teams;
+    private SeasonData season;
+    private StandingData standings;
 
-    private PlayerData[] players;
-
-    public SoccerAPIData() {
+    public CompetitionData getCompetition() {
+        return competition;
     }
 
-    public FixtureData[] getFixtures() {
-        return fixtures;
+    public void setCompetition(CompetitionData competition) {
+        this.competition = competition;
     }
 
-    public void setFixtures(FixtureData[] fixtures) {
-        this.fixtures = fixtures;
+    public FixtureData[] getMatches() {
+        return matches;
+    }
+
+    public void setMatches(FixtureData[] matches) {
+        this.matches = matches;
     }
 
     public TeamData[] getTeams() {
@@ -31,11 +36,19 @@ public class SoccerAPIData {
         this.teams = teams;
     }
 
-    public PlayerData[] getPlayers() {
-        return players;
+    public SeasonData getSeason() {
+        return season;
     }
 
-    public void setPlayers(PlayerData[] players) {
-        this.players = players;
+    public void setSeason(SeasonData season) {
+        this.season = season;
+    }
+
+    public StandingData getStandings() {
+        return standings;
+    }
+
+    public void setStandings(StandingData standings) {
+        this.standings = standings;
     }
 }

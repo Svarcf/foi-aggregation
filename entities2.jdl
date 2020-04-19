@@ -1,0 +1,10 @@
+entity Standing {
+    position Integer required
+    won Integer required
+    draw Integer required
+    lost Integer required
+    points Integer required
+}
+
+dto * with mapstruct
+service * with serviceClass

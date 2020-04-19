@@ -4,43 +4,71 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FixtureScoreData {
-    private String halftime;
-    private String fulltime;
-    private String extratime;
-    private String penalty;
 
-    public FixtureScoreData() {
+    private String winner;
+    private Score halfTime;
+    private Score fullTime;
+    private Score extraTime;
+    private Score penalties;
+
+    public String getWinner() {
+        return winner;
     }
 
-    public String getHalftime() {
-        return halftime;
+    public void setWinner(String winner) {
+        this.winner = winner;
     }
 
-    public void setHalftime(String halftime) {
-        this.halftime = halftime;
+    public Score getHalfTime() {
+        return halfTime;
     }
 
-    public String getFulltime() {
-        return fulltime;
+    public void setHalfTime(Score halfTime) {
+        this.halfTime = halfTime;
     }
 
-    public void setFulltime(String fulltime) {
-        this.fulltime = fulltime;
+    public Score getFullTime() {
+        return fullTime;
     }
 
-    public String getExtratime() {
-        return extratime;
+    public void setFullTime(Score fullTime) {
+        this.fullTime = fullTime;
     }
 
-    public void setExtratime(String extratime) {
-        this.extratime = extratime;
+    public Score getExtraTime() {
+        return extraTime;
     }
 
-    public String getPenalty() {
-        return penalty;
+    public void setExtraTime(Score extraTime) {
+        this.extraTime = extraTime;
     }
 
-    public void setPenalty(String penalty) {
-        this.penalty = penalty;
+    public Score getPenalties() {
+        return penalties;
+    }
+
+    public void setPenalties(Score penalties) {
+        this.penalties = penalties;
+    }
+
+    public class Score {
+        private int homeTeam;
+        private int awayTeam;
+
+        public int getHomeTeam() {
+            return homeTeam;
+        }
+
+        public void setHomeTeam(int homeTeam) {
+            this.homeTeam = homeTeam;
+        }
+
+        public int getAwayTeam() {
+            return awayTeam;
+        }
+
+        public void setAwayTeam(int awayTeam) {
+            this.awayTeam = awayTeam;
+        }
     }
 }

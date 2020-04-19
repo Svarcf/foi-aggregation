@@ -47,7 +47,6 @@ public class TeamResourceIT {
     private static final String UPDATED_VENUE_NAME = "BBBBBBBBBB";
 
     private static final String DEFAULT_VENUE_CITY = "AAAAAAAAAA";
-    private static final String UPDATED_VENUE_CITY = "BBBBBBBBBB";
 
     @Autowired
     private TeamRepository teamRepository;
@@ -99,8 +98,7 @@ public class TeamResourceIT {
         Team team = new Team()
             .name(DEFAULT_NAME)
             .logo(DEFAULT_LOGO)
-            .venueName(DEFAULT_VENUE_NAME)
-            .venueCity(DEFAULT_VENUE_CITY);
+            .venueName(DEFAULT_VENUE_NAME);
         return team;
     }
     /**
@@ -113,8 +111,7 @@ public class TeamResourceIT {
         Team team = new Team()
             .name(UPDATED_NAME)
             .logo(UPDATED_LOGO)
-            .venueName(UPDATED_VENUE_NAME)
-            .venueCity(UPDATED_VENUE_CITY);
+            .venueName(UPDATED_VENUE_NAME);
         return team;
     }
 
@@ -142,7 +139,6 @@ public class TeamResourceIT {
         assertThat(testTeam.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testTeam.getLogo()).isEqualTo(DEFAULT_LOGO);
         assertThat(testTeam.getVenueName()).isEqualTo(DEFAULT_VENUE_NAME);
-        assertThat(testTeam.getVenueCity()).isEqualTo(DEFAULT_VENUE_CITY);
     }
 
     @Test
@@ -206,25 +202,6 @@ public class TeamResourceIT {
 
     @Test
     @Transactional
-    public void checkVenueCityIsRequired() throws Exception {
-        int databaseSizeBeforeTest = teamRepository.findAll().size();
-        // set the field null
-        team.setVenueCity(null);
-
-        // Create the Team, which fails.
-        TeamDTO teamDTO = teamMapper.toDto(team);
-
-        restTeamMockMvc.perform(post("/api/teams")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(teamDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Team> teamList = teamRepository.findAll();
-        assertThat(teamList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllTeams() throws Exception {
         // Initialize the database
         teamRepository.saveAndFlush(team);
@@ -239,7 +216,7 @@ public class TeamResourceIT {
             .andExpect(jsonPath("$.[*].venueName").value(hasItem(DEFAULT_VENUE_NAME)))
             .andExpect(jsonPath("$.[*].venueCity").value(hasItem(DEFAULT_VENUE_CITY)));
     }
-    
+
     @Test
     @Transactional
     public void getTeam() throws Exception {
@@ -280,8 +257,7 @@ public class TeamResourceIT {
         updatedTeam
             .name(UPDATED_NAME)
             .logo(UPDATED_LOGO)
-            .venueName(UPDATED_VENUE_NAME)
-            .venueCity(UPDATED_VENUE_CITY);
+            .venueName(UPDATED_VENUE_NAME);
         TeamDTO teamDTO = teamMapper.toDto(updatedTeam);
 
         restTeamMockMvc.perform(put("/api/teams")
@@ -296,7 +272,6 @@ public class TeamResourceIT {
         assertThat(testTeam.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testTeam.getLogo()).isEqualTo(UPDATED_LOGO);
         assertThat(testTeam.getVenueName()).isEqualTo(UPDATED_VENUE_NAME);
-        assertThat(testTeam.getVenueCity()).isEqualTo(UPDATED_VENUE_CITY);
     }
 
     @Test

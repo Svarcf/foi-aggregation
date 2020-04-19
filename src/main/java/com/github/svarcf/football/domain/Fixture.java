@@ -36,11 +36,11 @@ public class Fixture implements Serializable {
     private String score;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "homeTeamId", nullable = false)
+    @JoinColumn(name = "home_team_id", nullable = false)
     private Team homeTeam;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "awayTeamId", nullable = false)
+    @JoinColumn(name = "away_team_id", nullable = false)
     private Team awayTeam;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -14,11 +14,10 @@ public class TeamDataToTeamConverter implements Converter<TeamData, Team> {
         if(teamData == null){
             return teamModel;
         }
-        teamModel.setId(teamData.getTeam_id());
+        teamModel.setId(teamData.getId());
         teamModel.setName(teamData.getName());
-        teamModel.setLogo(teamData.getLogo());
-        teamModel.setVenueCity(teamData.getVenue_city());
-        teamModel.setVenueName(teamData.getVenue_name());
+        teamModel.setLogo(teamData.getCrestUrl());
+        teamModel.setVenueName(teamData.getVenue());
         return teamModel;
     }
 }

@@ -18,9 +18,6 @@ public class TeamDTO implements Serializable {
     @NotNull
     private String venueName;
 
-    @NotNull
-    private String venueCity;
-
 
     public Long getId() {
         return id;
@@ -54,14 +51,6 @@ public class TeamDTO implements Serializable {
         this.venueName = venueName;
     }
 
-    public String getVenueCity() {
-        return venueCity;
-    }
-
-    public void setVenueCity(String venueCity) {
-        this.venueCity = venueCity;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -90,7 +79,6 @@ public class TeamDTO implements Serializable {
             ", name='" + getName() + "'" +
             ", logo='" + getLogo() + "'" +
             ", venueName='" + getVenueName() + "'" +
-            ", venueCity='" + getVenueCity() + "'" +
             "}";
     }
 }

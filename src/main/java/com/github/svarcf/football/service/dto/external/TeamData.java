@@ -2,21 +2,23 @@ package com.github.svarcf.football.service.dto.external;
 
 public class TeamData {
 
-    private long team_id;
+    private long id;
     private String name;
-    private String logo;
-    private String venue_name;
-    private String venue_city;
+    private String crestUrl;
+    private String venue;
+    private String tla;
+    private String address;
+    private int founded;
 
     public TeamData() {
     }
 
-    public long getTeam_id() {
-        return team_id;
+    public long getId() {
+        return id;
     }
 
-    public void setTeam_id(long team_id) {
-        this.team_id = team_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -27,27 +29,43 @@ public class TeamData {
         this.name = name;
     }
 
-    public String getLogo() {
-        return logo;
+    public String getCrestUrl() {
+        return crestUrl;
     }
 
-    public void setLogo(String logo) {
-        this.logo = logo;
+    public void setCrestUrl(String crestUrl) {
+        this.crestUrl = crestUrl;
     }
 
-    public String getVenue_name() {
-        return venue_name;
+    public String getVenue() {
+        return venue;
     }
 
-    public void setVenue_name(String venue_name) {
-        this.venue_name = venue_name;
+    public void setVenue(String venue) {
+        this.venue = venue;
     }
 
-    public String getVenue_city() {
-        return venue_city;
+    public String getTla() {
+        return tla;
     }
 
-    public void setVenue_city(String venue_city) {
-        this.venue_city = venue_city;
+    public void setTla(String tla) {
+        this.tla = tla;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getFounded() {
+        return founded;
+    }
+
+    public void setFounded(int founded) {
+        this.founded = founded;
     }
 }

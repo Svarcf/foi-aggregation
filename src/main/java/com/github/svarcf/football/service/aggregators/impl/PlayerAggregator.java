@@ -1,17 +1,10 @@
 package com.github.svarcf.football.service.aggregators.impl;
 
-import com.github.svarcf.football.domain.Player;
-import com.github.svarcf.football.domain.Team;
 import com.github.svarcf.football.repository.PlayerRepository;
 import com.github.svarcf.football.repository.TeamRepository;
 import com.github.svarcf.football.service.aggregators.Aggregator;
-import com.github.svarcf.football.service.dto.external.SoccerAPIResponseData;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.Arrays;
-import java.util.Iterator;
 
 @Component
 public class PlayerAggregator implements Aggregator {
@@ -30,12 +23,12 @@ public class PlayerAggregator implements Aggregator {
 
     @Override
     public void aggregate() {
-        Iterator<Team> teams = teamRepository.findAll().iterator();
-        while(teams.hasNext()){
-            Team team = teams.next();
-            RestTemplate restTemplate = new RestTemplate();
-            SoccerAPIResponseData soccerAPIResponse = restTemplate.getForObject(String.format(PLAYER_API_ENDPOINT, team.getId()), SoccerAPIResponseData.class);
-            Arrays.stream(soccerAPIResponse.getApi().getPlayers()).forEach(playerData -> playerRepository.save(mvcConversionService.convert(playerData, Player.class)));
-        }
+//        Iterator<Team> teams = teamRepository.findAll().iterator();
+//        while(teams.hasNext()){
+//            Team team = teams.next();
+//            RestTemplate restTemplate = new RestTemplate();
+//            SoccerAPIResponseData soccerAPIResponse = restTemplate.getForObject(String.format(PLAYER_API_ENDPOINT, team.getId()), SoccerAPIResponseData.class);
+//            Arrays.stream(soccerAPIResponse.getApi().getPlayers()).forEach(playerData -> playerRepository.save(mvcConversionService.convert(playerData, Player.class)));
+//        }
     }
 }

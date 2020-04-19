@@ -31,12 +31,34 @@
             <column name="score" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="home_team_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="away_team_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
     </changeSet>
 
     <changeSet id="20200104171042-1-relations" author="jhipster">
+        <addForeignKeyConstraint baseColumnNames="home_team_id"
+                                 baseTableName="fixture"
+                                 constraintName="fk_home_team_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="team"
+                                 validate="true"/>
 
+        <addForeignKeyConstraint baseColumnNames="away_team_id"
+                                 baseTableName="fixture"
+                                 constraintName="fk_away_team_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="team"
+                                 validate="true"/>
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 
