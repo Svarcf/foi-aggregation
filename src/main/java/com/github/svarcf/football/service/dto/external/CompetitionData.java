@@ -2,8 +2,8 @@ package com.github.svarcf.football.service.dto.external;
 
 public class CompetitionData {
     private long id;
-    String name;
-    String code;
+    private String name;
+    private String code;
 
     public long getId() {
         return id;

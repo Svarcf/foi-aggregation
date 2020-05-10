@@ -43,6 +43,10 @@ public class Fixture implements Serializable {
     @JoinColumn(name = "away_team_id", nullable = false)
     private Team awayTeam;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "competition_id", nullable = false)
+    private Competition competition;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -132,6 +136,14 @@ public class Fixture implements Serializable {
 
     public void setAwayTeam(Team awayTeam) {
         this.awayTeam = awayTeam;
+    }
+
+    public Competition getCompetition() {
+        return competition;
+    }
+
+    public void setCompetition(Competition competition) {
+        this.competition = competition;
     }
 
     @Override

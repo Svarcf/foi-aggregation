@@ -1,10 +1,12 @@
 package com.github.svarcf.football.domain;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
-
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * A Player.
@@ -16,24 +18,24 @@ public class Player implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "team_id", nullable = false)
+    private Team team;
 
     @NotNull
     @Column(name = "name", nullable = false)
     private String name;
 
-    @NotNull
-    @Column(name = "number", nullable = false)
-    private Integer number;
-
-    @NotNull
-    @Column(name = "position", nullable = false)
+    @Column(name = "position")
     private String position;
 
-    @ManyToOne
-    @JsonIgnoreProperties("players")
-    private Team team;
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
+
+    @Column(name = "nationality")
+    private String nationality;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -42,6 +44,15 @@ public class Player implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     public String getName() {
@@ -57,19 +68,6 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public Integer getNumber() {
-        return number;
-    }
-
-    public Player number(Integer number) {
-        this.number = number;
-        return this;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
     public String getPosition() {
         return position;
     }
@@ -83,17 +81,30 @@ public class Player implements Serializable {
         this.position = position;
     }
 
-    public Team getTeam() {
-        return team;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public Player team(Team team) {
-        this.team = team;
+    public Player dateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
         return this;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public Player nationality(String nationality) {
+        this.nationality = nationality;
+        return this;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -117,9 +128,11 @@ public class Player implements Serializable {
     public String toString() {
         return "Player{" +
             "id=" + getId() +
+            ", team=" + getTeam() +
             ", name='" + getName() + "'" +
-            ", number=" + getNumber() +
             ", position='" + getPosition() + "'" +
+            ", dateOfBirth='" + getDateOfBirth() + "'" +
+            ", nationality='" + getNationality() + "'" +
             "}";
     }
 }

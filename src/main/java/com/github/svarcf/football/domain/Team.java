@@ -1,5 +1,8 @@
 package com.github.svarcf.football.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -32,6 +35,10 @@ public class Team implements Serializable {
 
     @OneToMany(mappedBy = "team")
     private Set<Player> players = new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "competition_id", nullable = false)
+    private Competition competition;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -106,6 +113,14 @@ public class Team implements Serializable {
         this.players = players;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    public Competition getCompetition() {
+        return competition;
+    }
+
+    public void setCompetition(Competition competition) {
+        this.competition = competition;
+    }
 
     @Override
     public boolean equals(Object o) {

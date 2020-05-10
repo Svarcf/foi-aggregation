@@ -14,6 +14,7 @@ public class FixtureData {
     private FixtureTeamData awayTeam;
     private FixtureScoreData score;
     private SeasonData season;
+    private long competition;
 
     public long getId() {
         return id;
@@ -77,5 +78,13 @@ public class FixtureData {
 
     public void setSeason(SeasonData season) {
         this.season = season;
+    }
+
+    public long getCompetition() {
+        return competition;
+    }
+
+    public void setCompetition(long competition) {
+        this.competition = competition;
     }
 }

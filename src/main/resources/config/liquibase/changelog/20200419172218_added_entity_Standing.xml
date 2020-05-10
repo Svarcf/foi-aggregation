@@ -9,31 +9,39 @@
         <property name="autoIncrement" value="true"/>
 
     <!--
-        Added the entity Team.
+        Added the entity Standing.
     -->
-    <changeSet id="20200104171041-1" author="jhipster">
-        <createTable tableName="team">
-            <column name="id" type="bigint">
+    <changeSet id="20200419172218-1" author="jhipster">
+        <createTable tableName="standing">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(255)">
+            <column name="position" type="integer">
                 <constraints nullable="false" />
             </column>
-            <column name="logo" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="venue_name" type="varchar(255)">
+            <column name="won" type="integer">
                 <constraints nullable="false" />
             </column>
-            <column name="competition_id" type="bigint">
-                <constraints nullable="true" />
+            <column name="draw" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="lost" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="points" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="competition_id" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="team_id" type="integer">
+                <constraints nullable="false" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
     </changeSet>
 
-    <changeSet id="20200104171041-1-relations" author="jhipster">
-
+    <changeSet id="20200419172218-1-relations" author="jhipster">
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 

@@ -6,5 +6,12 @@ entity Standing {
     points Integer required
 }
 
+
+entity Competition {
+    name String required
+    code String required
+}
+
+
 dto * with mapstruct
 service * with serviceClass

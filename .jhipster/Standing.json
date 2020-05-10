@@ -1,42 +1,45 @@
 {
-    "name": "Player",
+    "name": "Standing",
     "fields": [
         {
-            "fieldName": "team",
-            "fieldType": "Integer"
-        },
-        {
-            "fieldName": "name",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
             "fieldName": "position",
-            "fieldType": "String",
+            "fieldType": "Integer",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "dateOfBirth",
-            "fieldType": "LocalDate",
+            "fieldName": "won",
+            "fieldType": "Integer",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "nationality",
-            "fieldType": "String",
+            "fieldName": "draw",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lost",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "points",
+            "fieldType": "Integer",
             "fieldValidateRules": [
                 "required"
             ]
         }
     ],
     "relationships": [],
-    "changelogDate": "20200104171040",
-    "entityTableName": "player",
+    "changelogDate": "20200419172218",
+    "entityTableName": "standing",
     "dto": "mapstruct",
     "pagination": "no",
     "service": "serviceClass",

@@ -1,9 +1,3 @@
-entity Player {
-    name String required
-    number Integer required
-    position String required
-}
-
 entity Team {
 	name String required
     logo String

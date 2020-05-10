@@ -1,37 +1,30 @@
 package com.github.svarcf.football.service.dto.external;
 
 public class PlayerData {
-    private long player_id;
-    private String player_name;
-    private int number;
+    private long id;
+    private String name;
     private String position;
-    private long team_id;
+    private String dateOfBirth;
+    private String nationality;
+    private long team;
 
     public PlayerData() {
     }
 
-    public long getPlayer_id() {
-        return player_id;
+    public long getId() {
+        return id;
     }
 
-    public void setPlayer_id(long player_id) {
-        this.player_id = player_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getPlayer_name() {
-        return player_name;
+    public String getName() {
+        return name;
     }
 
-    public void setPlayer_name(String player_name) {
-        this.player_name = player_name;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPosition() {
@@ -42,11 +35,27 @@ public class PlayerData {
         this.position = position;
     }
 
-    public long getTeam_id() {
-        return team_id;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setTeam_id(long team_id) {
-        this.team_id = team_id;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public long getTeam() {
+        return team;
+    }
+
+    public void setTeam(long team) {
+        this.team = team;
     }
 }

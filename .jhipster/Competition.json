@@ -1,10 +1,6 @@
 {
-    "name": "Player",
+    "name": "Competition",
     "fields": [
-        {
-            "fieldName": "team",
-            "fieldType": "Integer"
-        },
         {
             "fieldName": "name",
             "fieldType": "String",
@@ -13,21 +9,7 @@
             ]
         },
         {
-            "fieldName": "position",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
-            "fieldName": "dateOfBirth",
-            "fieldType": "LocalDate",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
-            "fieldName": "nationality",
+            "fieldName": "code",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
@@ -35,8 +17,8 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20200104171040",
-    "entityTableName": "player",
+    "changelogDate": "20200419172519",
+    "entityTableName": "competition",
     "dto": "mapstruct",
     "pagination": "no",
     "service": "serviceClass",

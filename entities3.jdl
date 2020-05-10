@@ -1,0 +1,11 @@
+entity Player {
+    team Integer
+    name String required
+    position String required
+    dateOfBirth LocalDate required
+    nationality String required
+}
+
+
+dto * with mapstruct
+service * with serviceClass

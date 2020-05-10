@@ -10,18 +10,21 @@ public class AggregationScheduler  {
     private Aggregator fixtureAggregator;
     private Aggregator playerAggregator;
     private Aggregator teamAggregator;
+    private Aggregator standingAggregator;
 
-    public AggregationScheduler(Aggregator fixtureAggregator, Aggregator playerAggregator, Aggregator teamAggregator) {
+    public AggregationScheduler(Aggregator fixtureAggregator, Aggregator playerAggregator, Aggregator teamAggregator, Aggregator standingAggregator) {
         this.fixtureAggregator = fixtureAggregator;
         this.playerAggregator = playerAggregator;
         this.teamAggregator = teamAggregator;
+        this.standingAggregator = standingAggregator;
     }
 
-    @Scheduled(fixedDelay = 200000)
+    @Scheduled(cron = "0 0 1 * * ?")
     public void scheduledTask(){
         teamAggregator.aggregate();
-//        playerAggregator.aggregate();
+        playerAggregator.aggregate();
         fixtureAggregator.aggregate();
+        standingAggregator.aggregate();
     }
 
 }

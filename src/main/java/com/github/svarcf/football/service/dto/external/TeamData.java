@@ -9,6 +9,7 @@ public class TeamData {
     private String tla;
     private String address;
     private int founded;
+    private long competition;
 
     public TeamData() {
     }
@@ -67,5 +68,13 @@ public class TeamData {
 
     public void setFounded(int founded) {
         this.founded = founded;
+    }
+
+    public long getCompetition() {
+        return competition;
+    }
+
+    public void setCompetition(long competition) {
+        this.competition = competition;
     }
 }

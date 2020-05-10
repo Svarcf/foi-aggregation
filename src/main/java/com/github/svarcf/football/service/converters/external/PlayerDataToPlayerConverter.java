@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Component
@@ -19,18 +21,19 @@ public class PlayerDataToPlayerConverter implements Converter<PlayerData, Player
     @Override
     public Player convert(PlayerData playerData) {
         Player playerModel = new Player();
-        if (playerData == null) {
-            return playerModel;
-        }
-        playerModel.setId(playerData.getPlayer_id());
-        playerModel.setNumber(playerData.getNumber());
-        playerModel.setName(playerData.getPlayer_name());
-        playerModel.setPosition(playerData.getPosition());
 
-        Optional<Team> team = teamRepository.findById(playerData.getTeam_id());
-        if (team.isPresent()) {
-            playerModel.setTeam(team.get());
+        if(playerData.getDateOfBirth() != null){
+            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
+            playerModel.setDateOfBirth(LocalDate.parse(playerData.getDateOfBirth(), dateFormat));
         }
+
+        playerModel.setId(playerData.getId());
+        playerModel.setName(playerData.getName());
+        playerModel.setPosition(playerData.getPosition());
+        playerModel.setNationality(playerData.getNationality());
+
+        Optional<Team> team = teamRepository.findById(playerData.getTeam());
+        team.ifPresent(value -> playerModel.setTeam(value));
         return playerModel;
     }
 }

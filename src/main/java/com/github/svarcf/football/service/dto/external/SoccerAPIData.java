@@ -10,7 +10,8 @@ public class SoccerAPIData {
     private FixtureData[] matches;
     private TeamData[] teams;
     private SeasonData season;
-    private StandingData standings;
+    private StandingData[] standings;
+    private PlayerData[] squad;
 
     public CompetitionData getCompetition() {
         return competition;
@@ -44,11 +45,19 @@ public class SoccerAPIData {
         this.season = season;
     }
 
-    public StandingData getStandings() {
+    public PlayerData[] getSquad() {
+        return squad;
+    }
+
+    public void setSquad(PlayerData[] squad) {
+        this.squad = squad;
+    }
+
+    public StandingData[] getStandings() {
         return standings;
     }
 
-    public void setStandings(StandingData standings) {
+    public void setStandings(StandingData[] standings) {
         this.standings = standings;
     }
 }

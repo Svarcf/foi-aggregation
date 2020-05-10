@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Player.
+    -->
+    <changeSet id="20200104171042-2" author="jhipster">
+        <addForeignKeyConstraint baseColumnNames="home_team_id"
+                                 baseTableName="fixture"
+                                 constraintName="fk_home_team_fixture_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="team"
+                                 validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="away_team_id"
+                                 baseTableName="fixture"
+                                 constraintName="fk_away_team_fixture_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="team"
+                                 validate="true"/>
+
+        <addForeignKeyConstraint baseColumnNames="competition_id"
+                                 baseTableName="fixture"
+                                 constraintName="fk_competition_fixture_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="competition"
+                                 validate="true"/>
+    </changeSet>
+</databaseChangeLog>

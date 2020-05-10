@@ -1,4 +1,5 @@
 package com.github.svarcf.football.service.dto;
+import java.time.LocalDate;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -10,19 +11,18 @@ public class PlayerDTO implements Serializable {
 
     private Long id;
 
+    private TeamDTO team;
+
     @NotNull
     private String name;
 
     @NotNull
-    private Integer number;
+    private String nationality;
 
-    @NotNull
     private String position;
 
+    private LocalDate dateOfBirth;
 
-    private Long teamId;
-
-    private String teamName;
 
     public Long getId() {
         return id;
@@ -30,6 +30,14 @@ public class PlayerDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public TeamDTO getTeam() {
+        return team;
+    }
+
+    public void setTeam(TeamDTO team) {
+        this.team = team;
     }
 
     public String getName() {
@@ -40,14 +48,6 @@ public class PlayerDTO implements Serializable {
         this.name = name;
     }
 
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
     public String getPosition() {
         return position;
     }
@@ -56,20 +56,20 @@ public class PlayerDTO implements Serializable {
         this.position = position;
     }
 
-    public Long getTeamId() {
-        return teamId;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setTeamId(Long teamId) {
-        this.teamId = teamId;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public String getTeamName() {
-        return teamName;
+    public String getNationality() {
+        return nationality;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 
     @Override
@@ -97,11 +97,11 @@ public class PlayerDTO implements Serializable {
     public String toString() {
         return "PlayerDTO{" +
             "id=" + getId() +
+            ", team=" + getTeam() +
             ", name='" + getName() + "'" +
-            ", number=" + getNumber() +
             ", position='" + getPosition() + "'" +
-            ", team=" + getTeamId() +
-            ", team='" + getTeamName() + "'" +
+            ", dateOfBirth='" + getDateOfBirth() + "'" +
+            ", nationality='" + getNationality() + "'" +
             "}";
     }
 }

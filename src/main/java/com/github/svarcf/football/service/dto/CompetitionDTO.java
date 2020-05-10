@@ -2,22 +2,20 @@ package com.github.svarcf.football.service.dto;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.Set;
 
 /**
- * A DTO for the {@link com.github.svarcf.football.domain.Team} entity.
+ * A DTO for the {@link com.github.svarcf.football.domain.Competition} entity.
  */
-public class TeamDTO implements Serializable {
+public class CompetitionDTO implements Serializable {
 
     private Long id;
 
     @NotNull
     private String name;
 
-    private String logo;
-
     @NotNull
-    private String venueName;
+    private String code;
+
 
     public Long getId() {
         return id;
@@ -35,20 +33,12 @@ public class TeamDTO implements Serializable {
         this.name = name;
     }
 
-    public String getLogo() {
-        return logo;
+    public String getCode() {
+        return code;
     }
 
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
-
-    public String getVenueName() {
-        return venueName;
-    }
-
-    public void setVenueName(String venueName) {
-        this.venueName = venueName;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     @Override
@@ -60,11 +50,11 @@ public class TeamDTO implements Serializable {
             return false;
         }
 
-        TeamDTO teamDTO = (TeamDTO) o;
-        if (teamDTO.getId() == null || getId() == null) {
+        CompetitionDTO competitionDTO = (CompetitionDTO) o;
+        if (competitionDTO.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), teamDTO.getId());
+        return Objects.equals(getId(), competitionDTO.getId());
     }
 
     @Override
@@ -74,11 +64,10 @@ public class TeamDTO implements Serializable {
 
     @Override
     public String toString() {
-        return "TeamDTO{" +
+        return "CompetitionDTO{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
-            ", logo='" + getLogo() + "'" +
-            ", venueName='" + getVenueName() + "'" +
+            ", code='" + getCode() + "'" +
             "}";
     }
 }

@@ -6,11 +6,19 @@
     <!--
         Added the constraints for entity Player.
     -->
-    <changeSet id="20200104171040-2" author="jhipster">
+    <changeSet id="20200419172218-2" author="jhipster">
+        <addForeignKeyConstraint baseColumnNames="competition_id"
+                                 baseTableName="standing"
+                                 constraintName="fk_competition_standing_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="competition"
+                                 validate="true"/>
 
         <addForeignKeyConstraint baseColumnNames="team_id"
-                                 baseTableName="player"
-                                 constraintName="fk_player_team_id"
+                                 baseTableName="standing"
+                                 constraintName="fk_team_standing_id"
                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT"
                                  referencedColumnNames="id"
