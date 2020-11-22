@@ -25,6 +25,9 @@ public class StandingDTO implements Serializable {
     @NotNull
     private Integer points;
 
+    @NotNull
+    private TeamDTO team;
+
 
     public Long getId() {
         return id;
@@ -74,6 +77,14 @@ public class StandingDTO implements Serializable {
         this.points = points;
     }
 
+    public TeamDTO getTeam() {
+        return team;
+    }
+
+    public void setTeam(TeamDTO team) {
+        this.team = team;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -98,12 +109,13 @@ public class StandingDTO implements Serializable {
     @Override
     public String toString() {
         return "StandingDTO{" +
-            "id=" + getId() +
-            ", position=" + getPosition() +
-            ", won=" + getWon() +
-            ", draw=" + getDraw() +
-            ", lost=" + getLost() +
-            ", points=" + getPoints() +
-            "}";
+            "id=" + id +
+            ", position=" + position +
+            ", won=" + won +
+            ", draw=" + draw +
+            ", lost=" + lost +
+            ", points=" + points +
+            ", team=" + team +
+            '}';
     }
 }
