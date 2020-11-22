@@ -11,8 +11,6 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {})
 public interface FixtureMapper extends EntityMapper<FixtureDTO, Fixture> {
 
-
-
     default Fixture fromId(Long id) {
         if (id == null) {
             return null;

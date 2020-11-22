@@ -11,8 +11,6 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {})
 public interface PlayerMapper extends EntityMapper<PlayerDTO, Player> {
 
-
-
     default Player fromId(Long id) {
         if (id == null) {
             return null;

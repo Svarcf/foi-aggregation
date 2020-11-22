@@ -22,6 +22,10 @@ public class FixtureDTO implements Serializable {
 
     private String score;
 
+    private TeamDTO homeTeam;
+
+    private TeamDTO awayTeam;
+
 
     public Long getId() {
         return id;
@@ -71,6 +75,22 @@ public class FixtureDTO implements Serializable {
         this.score = score;
     }
 
+    public TeamDTO getHomeTeam() {
+        return homeTeam;
+    }
+
+    public void setHomeTeam(TeamDTO homeTeam) {
+        this.homeTeam = homeTeam;
+    }
+
+    public TeamDTO getAwayTeam() {
+        return awayTeam;
+    }
+
+    public void setAwayTeam(TeamDTO awayTeam) {
+        this.awayTeam = awayTeam;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -95,12 +115,14 @@ public class FixtureDTO implements Serializable {
     @Override
     public String toString() {
         return "FixtureDTO{" +
-            "id=" + getId() +
-            ", eventDate='" + getEventDate() + "'" +
-            ", round='" + getRound() + "'" +
-            ", statusShort='" + getStatusShort() + "'" +
-            ", venue='" + getVenue() + "'" +
-            ", score='" + getScore() + "'" +
-            "}";
+            "id=" + id +
+            ", eventDate=" + eventDate +
+            ", round='" + round + '\'' +
+            ", statusShort='" + statusShort + '\'' +
+            ", venue='" + venue + '\'' +
+            ", score='" + score + '\'' +
+            ", homeTeam='" + homeTeam + '\'' +
+            ", awayTeam='" + awayTeam + '\'' +
+            '}';
     }
 }
