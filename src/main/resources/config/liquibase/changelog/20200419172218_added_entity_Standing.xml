@@ -31,10 +31,10 @@
             <column name="points" type="integer">
                 <constraints nullable="false" />
             </column>
-            <column name="competition_id" type="integer">
+            <column name="competition_id" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="team_id" type="integer">
+            <column name="team_id" type="bigint">
                 <constraints nullable="false" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
