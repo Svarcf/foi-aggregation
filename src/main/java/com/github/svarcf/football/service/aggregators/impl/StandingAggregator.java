@@ -28,6 +28,8 @@ public class StandingAggregator extends FoiAbstractRestRequest implements Aggreg
 
     @Override
     public void aggregate() {
+        standingRepository.deleteAll();
+        standingRepository.flush();
         SoccerAPIData soccerAPIData = this.getRequest(applicationProperties.getEndpoints().getStanding(), applicationProperties.getToken()).getBody();
         Arrays.stream(soccerAPIData.getStandings()[0].getTable()).forEach(tableData ->
         {

@@ -26,6 +26,8 @@ public class FixtureAggregator extends FoiAbstractRestRequest implements Aggrega
 
     @Override
     public void aggregate() {
+        fixtureRepository.deleteAll();
+        fixtureRepository.flush();
         SoccerAPIData soccerAPIData = this.getRequest(applicationProperties.getEndpoints().getFixture(), applicationProperties.getToken()).getBody();
         Arrays.stream(soccerAPIData.getMatches()).forEach(fixtureData -> {
             fixtureData.setCompetition(2021);
